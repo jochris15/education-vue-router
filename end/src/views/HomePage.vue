@@ -3,21 +3,13 @@
 
 import ProductCard from "@/components/ProductCard.vue";
 
-import {
-  ref,
-  onBeforeMount,
-  onMounted,
-  onBeforeUpdate,
-  onUpdated,
-  onBeforeUnmount,
-  onUnmounted,
-} from "vue";
+import { ref } from "vue";
 
 const products = ref([]);
 
-async function fetchProducts(url) {
+async function fetchProducts() {
   try {
-    const response = await fetch(url);
+    const response = await fetch("https://dummyjson.com/products");
     const data = await response.json();
 
     products.value = data.products;
@@ -26,49 +18,7 @@ async function fetchProducts(url) {
   }
 }
 
-fetchProducts("https://dummyjson.com/products");
-
-onBeforeMount(() => {
-  // biasanya digunakan untuk merubah data sebelum komponen di-mount, jarang digunakan
-  console.log("lifecyle ini akan dipanggil sebelum komponen di-mount");
-});
-
-onMounted(() => {
-  // biasanya digunakan untuk interaksi dengan DOM, contohnya untuk menginisialisasi plugin atau library yang membutuhkan DOM
-  console.log("lifecyle ini akan dipanggil setelah komponen di-mount");
-});
-
-onBeforeUpdate(() => {
-  // biasanya digunakan untuk merubah data sebelum komponen di-update, contohnya untuk menyimpan scroll position saat ini
-  console.log("lifecyle ini akan dipanggil sebelum komponen di-update");
-});
-
-onUpdated(() => {
-  // biasanya digunakan untuk interaksi dengan DOM yang sudah di-update, contohnya untuk restore scroll position setelah di update
-  console.log("lifecyle ini akan dipanggil setelah komponen di-update");
-});
-
-onBeforeUnmount(() => {
-  // biasanya digunakan untuk membersihkan event listener atau interval yang sudah di-set, contohnya untuk mematikan event lister untuk aplikasi realtime
-  console.log("lifecyle ini akan dipanggil sebelum komponen di-unmount");
-});
-
-onUnmounted(() => {
-  // biasanya digunakan untuk final cleanup, contohnya untuk disconnect dari external service
-  console.log("lifecyle ini akan dipanggil setelah komponen di-unmount");
-});
-
-// Option API example
-// export default {
-//   components : {
-//     ProductCard
-//   },
-//   data() {
-//     return {
-//       products: data,
-//     }
-//   }
-// }
+fetchProducts();
 </script>
 
 <template>
@@ -80,7 +30,6 @@ onUnmounted(() => {
         v-for="product in products"
         :key="product.id"
       >
-        <!-- // prop example -->
         <ProductCard :product="product" />
       </div>
     </main>

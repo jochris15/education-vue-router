@@ -17,7 +17,6 @@ const logout = () => {
   isLoggedIn.value = false;
 };
 
-// Option API example
 // export default {
 //   components: {
 //     LoginPage,

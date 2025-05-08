@@ -5,16 +5,6 @@ const handleLogout = () => {
   // Emit the logout event when the user clicks the logout button
   emit("logout");
 };
-
-// Option API example
-// export default {
-//   methods: {
-//     logout() {
-//       this.$emit("logout");
-//     },
-//   },
-//   emits: ["logout"],
-// };
 </script>
 
 <template>
@@ -25,7 +15,7 @@ const handleLogout = () => {
     <div class="flex justify-between items-center">
       <div>
         <a class="text-2xl font-bold px-6 cursor-pointer">
-          <span>Vue Introduction - Lifecyle Hooks</span>
+          <span>Vue Router</span>
         </a>
         <a class="text-2xl font-bold px-6 cursor-pointer">
           <span>Add Product</span>

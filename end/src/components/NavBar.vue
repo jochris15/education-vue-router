@@ -2,7 +2,7 @@
 import router from "@/router";
 
 const handleLogout = () => {
-  console.log("Logout clicked");
+  localStorage.clear();
   router.push("/login");
 };
 </script>
@@ -14,10 +14,10 @@ const handleLogout = () => {
   >
     <div class="flex justify-between items-center">
       <div>
-        <RouterLink to="/" class="text-2xl font-bold px-6 cursor-pointer">
-          <span>Vue Introduction - Lifecyle Hooks</span>
+        <RouterLink to="/home" class="text-2xl font-bold px-6 cursor-pointer">
+          <span>Vue Router</span>
         </RouterLink>
-        <RouterLink to="/add" class="text-2xl font-bold px-6 cursor-pointer">
+        <RouterLink :to="{ name: 'add' }" class="text-2xl font-bold px-6 cursor-pointer">
           <span>Add Product</span>
         </RouterLink>
       </div>

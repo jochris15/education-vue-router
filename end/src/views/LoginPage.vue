@@ -1,14 +1,17 @@
 <script setup>
 import { reactive, watch } from "vue";
-import router from "@/router";
+import { useRouter } from "vue-router";
+
 const form = reactive({
   email: "",
   password: "",
   message: "",
 });
 
+const router = useRouter();
 const handleLogin = () => {
-  router.push("/");
+  localStorage.setItem("email", form.email);
+  router.push("/home");
 };
 
 // watchers example
@@ -19,32 +22,6 @@ watch(form, (newForm) => {
     form.message = "Password is valid";
   }
 });
-
-// Option API example
-// export default {
-//   data() {
-//     return {
-//       email: "",
-//       password: "",
-//       message: "",
-//     };
-//   },
-//   methods: {
-//     login() {
-//       this.$emit("login", this.email, this.password);
-//     },
-//   },
-//   emits: ["login"],
-//   watch: {
-//     password(newPass, oldPass) {
-//       if (newPass.length < 6) {
-//         this.message = "Password must be at least 6 characters long";
-//       } else {
-//         this.message = "Password is valid";
-//       }
-//     },
-//   },
-// };
 </script>
 
 <template>

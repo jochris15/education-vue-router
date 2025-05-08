@@ -16,28 +16,14 @@ const rupiah = computed(() => {
     currency: "IDR",
   }).format(product.price);
 });
-
-// Option API example
-// export default {
-//   props: {
-//     product: Object,
-//   },
-//   computed: {
-//     rupiah() {
-//       return new Intl.NumberFormat("id-ID", {
-//         style: "currency",
-//         currency: "IDR",
-//       }).format(this.product.price);
-//     },
-//   },
-// };
 </script>
 
 <template>
   <div class="flex flex-1">
     <img
-      :src="product.images[0]"
-      class="border-2 border-black rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)]"
+      :src="product.thumbnail"
+      class="border-2 border-black rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)] cursor-pointer"
+      @click="$router.push(`/detail/${product.id}`)"
     />
   </div>
   <div class="flex flex-col divide-y divide-black">
