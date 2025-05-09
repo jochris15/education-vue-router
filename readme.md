@@ -24,7 +24,7 @@ Untuk membuat routing dasar, kita perlu mengimpor Vue Router dan mendefinisikan 
 
 1. **Buat folder baru** di dalam folder `src` dengan nama `router`.
 2. **Buat file baru** di dalam folder `router` dengan nama `index.js`.
-3. **Import `createRouter` dan `createMemoryHistory`** dari vue-router.
+3. **Import `createRouter` dan `createWebHistory`** dari vue-router.
 4. **Buat routes** yang berisi array objek dengan properti path dan component.
 5. **Buat router** dengan memanggil createRouter dan mengatur history mode. 
 6. **Ekspor router** agar bisa digunakan di file lain.
