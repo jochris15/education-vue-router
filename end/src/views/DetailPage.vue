@@ -5,9 +5,11 @@ import { useRoute } from "vue-router";
 const route = useRoute();
 const { id } = route.params;
 const product = ref({});
+const loading = ref(false);
 
 async function fetchProduct() {
   try {
+    loading.value = true;
     const response = await fetch(`https://dummyjson.com/product/${id}`);
 
     const data = await response.json();
@@ -15,6 +17,8 @@ async function fetchProduct() {
     product.value = data;
   } catch (error) {
     console.error("Error fetching product:", error);
+  } finally {
+    loading.value = false;
   }
 }
 
@@ -22,8 +26,13 @@ fetchProduct();
 </script>
 
 <template>
+  <div class="flex flex-col items-center justify-center" v-if="loading">
+    <img src="../assets/Bean Eater@1x-1.0s-200px-200px.svg" class="w-1/5" />
+  </div>
+
   <div
     class="flex flex-start bg-yellow-400 border-2 border-black p-5 rounded-2xl shadow-[2px_2px_0px_rgba(0,0,0,1)] h-full"
+    v-else
   >
     <div class="flex justify-center items-center">
       <img
