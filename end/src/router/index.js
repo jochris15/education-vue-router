@@ -8,6 +8,10 @@ import DetailPage from '@/views/DetailPage.vue';
 
 const routes = [
     {
+        path: '',
+        redirect : '/home'
+    },
+    {
         path: '/login',
         name: 'login  ',
         component: LoginPage,
