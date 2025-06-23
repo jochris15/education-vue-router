@@ -16,8 +16,6 @@ const rupiah = computed(() => {
     currency: "IDR",
   }).format(product.price);
 });
-
-// Option API example
 // export default {
 //   props: {
 //     product: Object,
@@ -43,12 +41,8 @@ const rupiah = computed(() => {
   <div class="flex flex-col divide-y divide-black">
     <b class="mt-5">{{ product.title }}</b>
     <span class="text-green-800">{{ rupiah }}</span>
-    <p class="mt-5">
-      {{
-        product.description.length > 100
-          ? product.description.substring(0, 100) + "..."
-          : product.description
-      }}
+    <p class="mt-5 line-clamp-3">
+      {{ product.description }}
     </p>
   </div>
 </template>

@@ -1,6 +1,4 @@
 <script setup>
-// dengan menggunakan script setup kita tidak perlu mendeklarasikan export default & setup() secara manual
-
 import ProductCard from "./ProductCard.vue";
 import { ref } from "vue";
 

@@ -2,7 +2,6 @@
 const emit = defineEmits(["logout"]);
 
 const handleLogout = () => {
-  // Emit the logout event when the user clicks the logout button
   emit("logout");
 };
 </script>

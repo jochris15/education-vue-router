@@ -7,17 +7,12 @@ const isLoggedIn = ref(true);
 
 const login = (email, password) => {
   console.log(`Logging in with email: ${email} and password: ${password}`);
-
-  // kalo mau akses nilai state ref, harus pakai .value di js
   isLoggedIn.value = true;
 };
 
 const logout = () => {
-  // kalo mau akses nilai state ref, harus pakai .value di js
   isLoggedIn.value = false;
 };
-
-// export default {
 //   components: {
 //     LoginPage,
 //     HomePage,
