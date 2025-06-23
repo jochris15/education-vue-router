@@ -30,13 +30,13 @@ const routes = [
             { path: '/add', name: 'add', component: AddPage },
             { path: '/detail/:id', name: "detail", component: DetailPage }
         ],
-        beforeEnter: () => {
-            if (!localStorage.email) {
-                return { path: 'login' }
-            }
+        // beforeEnter: () => {
+        //     if (!localStorage.email) {
+        //         return { path: 'login' }
+        //     }
 
-            return null
-        },
+        //     return null
+        // },
     }
 ]
 

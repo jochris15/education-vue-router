@@ -25,13 +25,15 @@ Untuk membuat routing dasar, kita perlu mengimpor Vue Router dan mendefinisikan 
 1. **Buat folder baru** di dalam folder `src` dengan nama `router`.
 2. **Buat file baru** di dalam folder `router` dengan nama `index.js`.
 3. **Import `createRouter` dan `createWebHistory`** dari vue-router.
-4. **Buat routes** yang berisi array objek dengan properti path dan component.
-5. **Buat router** dengan memanggil createRouter dan mengatur history mode. 
-6. **Ekspor router** agar bisa digunakan di file lain.
-7. **Import router** di dalam file `main.js` dan gunakan `.use(router)` untuk menghubungkan router dengan aplikasi Vue.
-8. **Dengan menggunakan `.use(router)`**, kita bisa mengakses router di dalam komponen Vue kita tanpa import di masing2 file, karena `<RouterView />` & `<RouterLink />` sudah terpasang secara global.
-9. **Pasang `<RouterView />`** di dalam file `App.vue` untuk menampilkan komponen yang sesuai dengan route yang dipilih.
-10. **Pasang `<RouterLink />`** pada NavBar untuk navigasi antar halaman dengan atribut `to` yang mengarah ke path yang diinginkan.
+4. **Buat folder views** di dalam folder `src` untuk menyimpan komponen yang akan digunakan sebagai halaman.
+5. **Import komponen** yang akan digunakan sebagai halaman di dalam file `router/index.js`.
+6. **Buat routes** yang berisi array objek dengan properti path dan component.
+7. **Buat router** dengan memanggil createRouter dan mengatur history mode. 
+8. **Ekspor router** agar bisa digunakan di file lain.
+9. **Import router** di dalam file `main.js` dan gunakan `.use(router)` untuk menghubungkan router dengan aplikasi Vue.
+10. **Dengan menggunakan `.use(router)`**, kita bisa mengakses router di dalam komponen Vue kita tanpa import di masing2 file, karena `<RouterView />` & `<RouterLink />` sudah terpasang secara global.
+11. **Pasang `<RouterView />`** di dalam file `App.vue` untuk menampilkan komponen yang sesuai dengan route yang dipilih.
+12. **Pasang `<RouterLink />`** pada NavBar untuk navigasi antar halaman dengan atribut `to` yang mengarah ke path yang diinginkan.
 
 ## [Programmatic Navigation](https://router.vuejs.org/guide/essentials/navigation.html)
 Bagaimana jika kita ingin melakukan navigasi secara otomatis? Kita bisa menggunakan `Programmatic Navigation` vue router dengan method `router.push()` untuk berpindah ke route yang diinginkan. Contohnya, sehabis login kita ingin berpindah ke halaman dashboard. 
@@ -45,7 +47,7 @@ Step-by-step menggunakan `Programmatic Navigation`:
 Dengan menggunakan `Named Routes`, kita bisa memberikan nama pada route yang kita buat. Hal ini memudahkan kita dalam melakukan navigasi ke route tersebut tanpa harus mengingat pathnya.
 Step-by-step menggunakan `Named Routes`:
 1. **Buat properti name** di dalam route yang kita buat di dalam file `router/index.js`.
-2. **Gunakan nama route** di dalam file `App.vue` pada `<RouterLink />` dengan menggunakan `:to="{ name: 'namaRoute' }"`.
+2. **Gunakan nama route** di dalam file vue pada `<RouterLink />` dengan menggunakan `:to="{ name: 'namaRoute' }"`.
 
 ## [Nested Routes](https://router.vuejs.org/guide/essentials/nested-routes.html)
 Dalam aplikasi ini, Navbar dibutuhkan di semua halaman kecuali login, kurang efisien jika kita memasang Navbar di setiap halaman. 
@@ -80,5 +82,5 @@ Dalam aplikasi ini, kita akan menggunakan `Per-Route Guards` untuk mengizinkan a
 
 Step-by-step menggunakan `Per-Route Guards`:
 1. **Buat property `beforeEnter`** di dalam route `BaseLayout` di dalam file `router/index.js`.
-2. **Buat kondisi** untuk mengecek apakah pengguna sudah login atau belum dengan menggunakan `localStorage.email`.
-3. **Jika belum login**, arahkan pengguna ke halaman login dengan menggunakan `next({ name: 'login' })`.
+2. **Buat kondisi** untuk mengecek apakah pengguna sudah login atau belum dengan mengecheck localStorage.
+3. **Jika belum login**, arahkan pengguna ke halaman login dengan menggunakan `return {name : "home"}`.
